@@ -13,6 +13,9 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles.css" />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
     <style>
       :root {
         --progress: __PROGRESS__;
@@ -42,7 +45,11 @@
       <h1>__TITLE__</h1>
 
       <p class="hero">
-        <span class="hero__value" data-count="__CURRENT_KG_RAW__">__CURRENT_KG__</span>
+        <span
+          class="hero__value"
+          data-current="__CURRENT_KG_RAW__"
+          data-target="__TARGET_KG_RAW__"
+        >0</span>
         <span class="hero__unit">__UNIT__</span>
       </p>
 
@@ -70,7 +77,7 @@
         </div>
         <div class="vessel__meta">
           <span>0</span>
-          <strong>__PERCENT_DISPLAY__%</strong>
+          <strong data-percent="__PERCENT_RAW__">0%</strong>
           <span>__TARGET_KG__ __UNIT__</span>
         </div>
       </section>

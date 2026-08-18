@@ -186,7 +186,11 @@ h1 {
   overflow: hidden;
   clip-path: inset(0 100% 0 0);
   will-change: clip-path;
-  animation: pour 2.8s cubic-bezier(0.33, 0, 0.2, 1) forwards;
+  animation: pour 2.2s cubic-bezier(0.33, 0, 0.2, 1) forwards;
+}
+
+html.js .vessel__fill {
+  animation: none;
 }
 
 .vessel__juice {

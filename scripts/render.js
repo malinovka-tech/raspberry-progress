@@ -127,6 +127,7 @@ const renderHtml = (data) => {
     .replaceAll("__TARGET_KG__", formatKg(data.targetKg))
     .replaceAll("__REMAINING_KG__", formatKg(data.remainingKg))
     .replaceAll("__PERCENT_DISPLAY__", formatPercent(data.percent))
+    .replaceAll("__PERCENT_RAW__", String(data.percent))
     .replaceAll("__PROGRESS__", `${data.percent}%`)
     .replaceAll("__PROGRESS_RATIO__", String(Math.min(1, data.percent / 100)))
     .replaceAll("__LAST_DELTA__", formatKg(data.lastDeltaKg))

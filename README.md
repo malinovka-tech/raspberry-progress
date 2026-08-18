@@ -30,12 +30,9 @@ Edit `config.json` (`targetKg`, title, season), or set repository variable `TARG
 
 Create a fine-grained PAT for **this repo only**:
 
-- **Contents**: Read and write (required to send `repository_dispatch`)
-- **Metadata**: Read
+- **Actions**: Read and write
 
-Classic PAT alternative: `public_repo` (repo is public).
-
-Put it on the **running expense bot** as `RASPBERRY_PROGRESS_GITHUB_TOKEN`. Optional:
+That is enough to trigger `workflow_dispatch`. Put it on the **running expense bot** as `RASPBERRY_PROGRESS_GITHUB_TOKEN`.
 
 ```
 RASPBERRY_PROGRESS_GITHUB_REPO=malinovka-tech/raspberry-progress
