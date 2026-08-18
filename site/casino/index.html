@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#070d08" />
+    <meta name="description" content="__FARM__ — прогрес збору малини, сезон __SEASON__" />
+    <title>__TITLE__ · __FARM__</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@600;700&family=Limelight&family=Share+Tech+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+    <style>
+      :root {
+        --progress: __PROGRESS__;
+        --progress-ratio: __PROGRESS_RATIO__;
+      }
+    </style>
+  </head>
+  <body class="__DONE_CLASS__">
+    <svg width="0" height="0" class="svg-defs" aria-hidden="true">
+      <symbol id="raspberry" viewBox="0 0 80 92">
+        <g fill="#3f8a3a">
+          <ellipse cx="40" cy="13" rx="5.5" ry="12" />
+          <ellipse cx="31" cy="16" rx="5" ry="11" transform="rotate(-32 31 16)" />
+          <ellipse cx="49" cy="16" rx="5" ry="11" transform="rotate(32 49 16)" />
+          <ellipse cx="40" cy="8" rx="3.2" ry="7" fill="#2f6b2c" />
+        </g>
+        <g>
+          <circle cx="28" cy="32" r="9" fill="#9b123c" />
+          <circle cx="40" cy="30" r="10" fill="#c4184d" />
+          <circle cx="52" cy="32" r="9" fill="#a81442" />
+          <circle cx="20" cy="46" r="9.5" fill="#b11645" />
+          <circle cx="33" cy="44" r="10" fill="#e02363" />
+          <circle cx="47" cy="44" r="10" fill="#ff3b78" />
+          <circle cx="60" cy="46" r="9.5" fill="#c4184d" />
+          <circle cx="22" cy="62" r="9" fill="#8f1038" />
+          <circle cx="36" cy="60" r="10.5" fill="#d61d58" />
+          <circle cx="52" cy="60" r="10" fill="#f02a6c" />
+          <circle cx="62" cy="62" r="8" fill="#a81442" />
+          <circle cx="30" cy="76" r="8.5" fill="#9b123c" />
+          <circle cx="44" cy="76" r="9" fill="#c4184d" />
+          <circle cx="56" cy="74" r="7.5" fill="#b11645" />
+          <circle cx="40" cy="48" r="4" fill="#ffd0de" opacity="0.35" />
+          <circle cx="47" cy="41" r="2.4" fill="#fff5f8" opacity="0.45" />
+        </g>
+      </symbol>
+    </svg>
+
+    <div class="felt" aria-hidden="true">
+      <span class="spark s1"></span>
+      <span class="spark s2"></span>
+      <span class="spark s3"></span>
+      <span class="spark s4"></span>
+      <svg class="float-berry b1"><use href="#raspberry" /></svg>
+      <svg class="float-berry b2"><use href="#raspberry" /></svg>
+      <svg class="float-berry b3"><use href="#raspberry" /></svg>
+      <svg class="float-berry b4"><use href="#raspberry" /></svg>
+      <svg class="float-berry b5"><use href="#raspberry" /></svg>
+    </div>
+
+    <main class="cabinet">
+      <div class="marquee marquee-top" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+
+      <p class="plaque">
+        <svg class="plaque__berry"><use href="#raspberry" /></svg>
+        <span>__FARM__</span>
+        <svg class="plaque__berry"><use href="#raspberry" /></svg>
+      </p>
+
+      <p class="kicker">LIVE · СЕЗОН __SEASON__</p>
+      <h1>__TITLE__</h1>
+
+      <div class="jackpot">
+        <p class="jackpot__label">JACKPOT</p>
+        <p class="hero">
+          <span
+            class="hero__value"
+            data-current="__CURRENT_KG_RAW__"
+            data-target="__TARGET_KG_RAW__"
+          >0</span>
+          <span class="hero__unit">__UNIT__</span>
+        </p>
+      </div>
+
+      <p class="__DELTA_CLASS__">куш +__LAST_DELTA__ __UNIT__</p>
+
+      <section
+        class="vessel"
+        role="progressbar"
+        aria-label="Прогрес збору малини"
+        aria-valuemin="0"
+        aria-valuemax="__TARGET_KG_RAW__"
+        aria-valuenow="__CURRENT_KG_RAW__"
+        aria-valuetext="__CURRENT_KG__ з __TARGET_KG__ __UNIT__"
+      >
+        <div class="vessel__glass">
+          <div class="vessel__lights" aria-hidden="true"></div>
+          <div class="vessel__fill">
+            <div class="vessel__juice">
+              <span class="vessel__sheen"></span>
+            </div>
+          </div>
+        </div>
+        <div class="vessel__meta">
+          <span>0</span>
+          <strong data-percent="__PERCENT_RAW__">0%</strong>
+          <span>__TARGET_KG__ __UNIT__</span>
+        </div>
+      </section>
+
+      <p class="status">__STATUS__</p>
+
+      <dl class="stats">
+        <div>
+          <dt>Зібрано</dt>
+          <dd>__CURRENT_KG__ __UNIT__</dd>
+        </div>
+        <div>
+          <dt>Ціль</dt>
+          <dd>__TARGET_KG__ __UNIT__</dd>
+        </div>
+        <div>
+          <dt>Залишилось</dt>
+          <dd>__REMAINING_KG__ __UNIT__</dd>
+        </div>
+      </dl>
+
+      <p class="updated">__UPDATED_AT__</p>
+      <p class="alt-link"><a href="../">Класична версія</a></p>
+
+      <div class="marquee marquee-bottom" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

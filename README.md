@@ -4,9 +4,10 @@ Static harvest page for Малинівка. GitHub Actions rebuilds it whenever 
 
 This repository is **public**, so Pages stays on the free GitHub plan.
 
-Live page:
+Live pages:
 
-`https://malinovka-tech.github.io/raspberry-progress/`
+- Classic: `https://malinovka-tech.github.io/raspberry-progress/`
+- Casino: `https://malinovka-tech.github.io/raspberry-progress/casino/`
 
 ## How it works
 
@@ -44,4 +45,5 @@ RASPBERRY_PROGRESS_PAGES_URL=https://malinovka-tech.github.io/raspberry-progress
 ```bash
 CURRENT_KG=125.5 LAST_DELTA_KG=12 node scripts/render.js
 open dist/index.html
+open dist/casino/index.html
 ```

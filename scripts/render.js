@@ -112,8 +112,7 @@ const loadData = () => {
   };
 };
 
-const renderHtml = (data) => {
-  const template = fs.readFileSync(path.join(siteDir, "index.html"), "utf8");
+const fillTemplate = (template, data) => {
   const isDone = data.currentKg >= data.targetKg && data.targetKg > 0;
   const hasDelta = data.lastDeltaKg > 0;
   return template
@@ -137,11 +136,30 @@ const renderHtml = (data) => {
     .replaceAll("__DELTA_CLASS__", hasDelta ? "delta" : "delta is-hidden");
 };
 
-const writeDist = (html) => {
+const copySiteFiles = (fromDir, toDir) => {
+  fs.copyFileSync(path.join(fromDir, "styles.css"), path.join(toDir, "styles.css"));
+  fs.copyFileSync(path.join(fromDir, "app.js"), path.join(toDir, "app.js"));
+};
+
+const writeDist = (data) => {
+  const classicDir = siteDir;
+  const casinoDir = path.join(siteDir, "casino");
+  const casinoDistDir = path.join(distDir, "casino");
+
   fs.mkdirSync(distDir, { recursive: true });
-  fs.writeFileSync(path.join(distDir, "index.html"), html);
-  fs.copyFileSync(path.join(siteDir, "styles.css"), path.join(distDir, "styles.css"));
-  fs.copyFileSync(path.join(siteDir, "app.js"), path.join(distDir, "app.js"));
+  fs.mkdirSync(casinoDistDir, { recursive: true });
+
+  fs.writeFileSync(
+    path.join(distDir, "index.html"),
+    fillTemplate(fs.readFileSync(path.join(classicDir, "index.html"), "utf8"), data),
+  );
+  copySiteFiles(classicDir, distDir);
+
+  fs.writeFileSync(
+    path.join(casinoDistDir, "index.html"),
+    fillTemplate(fs.readFileSync(path.join(casinoDir, "index.html"), "utf8"), data),
+  );
+  copySiteFiles(casinoDir, casinoDistDir);
   fs.writeFileSync(path.join(distDir, ".nojekyll"), "");
 };
 
@@ -157,7 +175,7 @@ const persistState = (data) => {
 const render = () => {
   const data = loadData();
   if (data.persistState) persistState(data);
-  writeDist(renderHtml(data));
+  writeDist(data);
   return data;
 };
 
@@ -170,6 +188,6 @@ if (require.main === module) {
 
 module.exports = {
   loadData,
-  renderHtml,
+  fillTemplate,
   render,
 };

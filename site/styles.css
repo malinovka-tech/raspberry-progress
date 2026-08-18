@@ -300,6 +300,20 @@ dd {
   font-size: 0.85rem;
 }
 
+.alt-link {
+  margin: 18px 0 0;
+}
+
+.alt-link a {
+  color: var(--gold);
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+.alt-link a:hover {
+  text-decoration: underline;
+}
+
 @keyframes pour {
   from { clip-path: inset(0 100% 0 0); }
   to { clip-path: inset(0 calc(100% - var(--progress)) 0 0); }
