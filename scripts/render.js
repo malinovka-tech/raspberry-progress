@@ -141,6 +141,13 @@ const copySiteFiles = (fromDir, toDir) => {
   fs.copyFileSync(path.join(fromDir, "app.js"), path.join(toDir, "app.js"));
 };
 
+const copyFavicons = (toDir) => {
+  for (const name of ["favicon.svg", "favicon.png", "apple-touch-icon.png"]) {
+    const from = path.join(siteDir, name);
+    if (fs.existsSync(from)) fs.copyFileSync(from, path.join(toDir, name));
+  }
+};
+
 const writeDist = (data) => {
   const classicDir = siteDir;
   const casinoDir = path.join(siteDir, "casino");
@@ -154,12 +161,14 @@ const writeDist = (data) => {
     fillTemplate(fs.readFileSync(path.join(classicDir, "index.html"), "utf8"), data),
   );
   copySiteFiles(classicDir, distDir);
+  copyFavicons(distDir);
 
   fs.writeFileSync(
     path.join(casinoDistDir, "index.html"),
     fillTemplate(fs.readFileSync(path.join(casinoDir, "index.html"), "utf8"), data),
   );
   copySiteFiles(casinoDir, casinoDistDir);
+  copyFavicons(casinoDistDir);
   fs.writeFileSync(path.join(distDir, ".nojekyll"), "");
 };
 
