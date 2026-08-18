@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#1a0710" />
+    <meta name="description" content="__FARM__ — прогрес збору малини, сезон __SEASON__" />
+    <title>__TITLE__ · __FARM__</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,720&family=Manrope:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <style>
+      :root {
+        --progress: __PROGRESS__;
+      }
+    </style>
+  </head>
+  <body class="__DONE_CLASS__">
+    <div class="atmosphere" aria-hidden="true">
+      <span class="orb orb-a"></span>
+      <span class="orb orb-b"></span>
+      <span class="orb orb-c"></span>
+      <span class="berry berry-1">🍓</span>
+      <span class="berry berry-2">🍓</span>
+      <span class="berry berry-3">🍓</span>
+      <span class="berry berry-4">🍓</span>
+      <span class="berry berry-5">🍓</span>
+    </div>
+
+    <main class="stage">
+      <p class="kicker">
+        <span class="kicker__farm">__FARM__</span>
+        <span class="kicker__dot"></span>
+        <span>Сезон __SEASON__</span>
+      </p>
+
+      <h1>__TITLE__</h1>
+
+      <p class="hero">
+        <span class="hero__value" data-count="__CURRENT_KG_RAW__">__CURRENT_KG__</span>
+        <span class="hero__unit">__UNIT__</span>
+      </p>
+
+      <p class="__DELTA_CLASS__">останнє додавання +__LAST_DELTA__ __UNIT__</p>
+
+      <section
+        class="vessel"
+        role="progressbar"
+        aria-label="Прогрес збору малини"
+        aria-valuemin="0"
+        aria-valuemax="__TARGET_KG_RAW__"
+        aria-valuenow="__CURRENT_KG_RAW__"
+        aria-valuetext="__CURRENT_KG__ з __TARGET_KG__ __UNIT__"
+      >
+        <div class="vessel__glass">
+          <div class="vessel__juice">
+            <span class="vessel__sheen"></span>
+            <span class="vessel__seeds"></span>
+            <span class="bubble b1"></span>
+            <span class="bubble b2"></span>
+            <span class="bubble b3"></span>
+          </div>
+        </div>
+        <div class="vessel__meta">
+          <span>0</span>
+          <strong>__PERCENT_DISPLAY__%</strong>
+          <span>__TARGET_KG__ __UNIT__</span>
+        </div>
+      </section>
+
+      <p class="status">__STATUS__</p>
+
+      <dl class="stats">
+        <div>
+          <dt>Зібрано</dt>
+          <dd>__CURRENT_KG__ __UNIT__</dd>
+        </div>
+        <div>
+          <dt>Ціль</dt>
+          <dd>__TARGET_KG__ __UNIT__</dd>
+        </div>
+        <div>
+          <dt>Залишилось</dt>
+          <dd>__REMAINING_KG__ __UNIT__</dd>
+        </div>
+      </dl>
+
+      <p class="updated">__UPDATED_AT__</p>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
