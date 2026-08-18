@@ -16,6 +16,7 @@
     <style>
       :root {
         --progress: __PROGRESS__;
+        --progress-ratio: __PROGRESS_RATIO__;
       }
     </style>
   </head>
@@ -57,12 +58,14 @@
         aria-valuetext="__CURRENT_KG__ з __TARGET_KG__ __UNIT__"
       >
         <div class="vessel__glass">
-          <div class="vessel__juice">
-            <span class="vessel__sheen"></span>
-            <span class="vessel__seeds"></span>
-            <span class="bubble b1"></span>
-            <span class="bubble b2"></span>
-            <span class="bubble b3"></span>
+          <div class="vessel__fill">
+            <div class="vessel__juice">
+              <span class="vessel__sheen"></span>
+              <span class="vessel__seeds"></span>
+              <span class="bubble b1"></span>
+              <span class="bubble b2"></span>
+              <span class="bubble b3"></span>
+            </div>
           </div>
         </div>
         <div class="vessel__meta">

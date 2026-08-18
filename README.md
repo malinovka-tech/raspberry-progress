@@ -1,8 +1,10 @@
 # Raspberry progress
 
-Static harvest page for Малинівка. GitHub Actions rebuilds it whenever the expense bot records income with raspberry kilos.
+Static harvest page for Малинівка. GitHub Actions rebuilds it whenever the expense bot records income with raspberry kilos, then deploys **GitHub Pages**.
 
-Live page after Pages is enabled:
+This repository is **public**, so Pages stays on the free GitHub plan.
+
+Live page:
 
 `https://malinovka-tech.github.io/raspberry-progress/`
 
@@ -16,11 +18,9 @@ The bot does not render HTML. It only triggers this repo.
 
 ## Setup
 
-### 1. Enable GitHub Pages
+### 1. GitHub Pages
 
 In this repo: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
-
-Run **Regenerate progress** once from the Actions tab (enter `0` for kg) so the first deploy can create the `github-pages` environment. Approve it if GitHub asks.
 
 ### 2. Set the season target
 
@@ -33,7 +33,7 @@ Create a fine-grained PAT for **this repo only**:
 - **Contents**: Read and write (required to send `repository_dispatch`)
 - **Metadata**: Read
 
-Classic PAT alternative: `repo` (and `public_repo` if the repo is public).
+Classic PAT alternative: `public_repo` (repo is public).
 
 Put it on the **running expense bot** as `RASPBERRY_PROGRESS_GITHUB_TOKEN`. Optional:
 
